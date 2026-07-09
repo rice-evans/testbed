@@ -1,23 +1,15 @@
 // Add, remove, or edit entries here — newest first.
 const JOBS = [
   {
-    role: 'Job Title',
-    company: 'Company Name',
-    dates: '2023 — Present',
-    location: 'City, Country',
+    role: 'Cadet Pilot',
+    company: 'Asia Corporate Jet',
+    dates: '2026 — Present',
+    location: 'XSP, Singapore',
     points: [
-      'A concrete accomplishment or responsibility, written as one clear sentence.',
-      'A second highlight — a metric, a shipped project, a team you led.'
+      'Joined as the 1st Cadet Pilot At Asia Corporate Jet.',
+      'Recieved sponsorship to attend 43 Air School to obtain my SACAA CPL and ATPLs.'
     ]
   },
-  {
-    role: 'Previous Job Title',
-    company: 'Previous Company',
-    dates: '2020 — 2023',
-    location: 'City, Country',
-    points: ['What you owned in this role and what came of it.']
-  }
-];
 
 const Experience = () => {
   return (
