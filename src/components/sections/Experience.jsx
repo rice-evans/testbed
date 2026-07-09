@@ -10,6 +10,7 @@ const JOBS = [
       'Recieved sponsorship to attend 43 Air School to obtain my SACAA CPL and ATPLs.'
     ]
   },
+];
 
 const Experience = () => {
   return (
