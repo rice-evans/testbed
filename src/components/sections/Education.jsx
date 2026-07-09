@@ -6,7 +6,7 @@ const SCHOOLS = [
     degree: "Integrated Airline Transport Pilots License (iATPL)",
     dates: "2026 — 2027",
     notes: [
-      "Attending 43 Flight School, South Africa in November 2026 for iATPL Pilot Training.",
+      "Attending 43 Flight School, South Africa in November 2026 for iATPL Pilot Training."
     ]
   }, // <--- THIS COMMA IS IMPORTANT! It separates the two school blocks.
   
@@ -18,14 +18,14 @@ const SCHOOLS = [
     notes: [
       'Hundred (Year 10) - Upper Sixth (Year 13)',
       'School Prefect & Deputy Head of House',
-      'Peer Mentor'
-      'Part-Time Tennis Coach for Pre-Prep & Prep students'
-      'Winner, Lectern Club (School public speaking competition)'
-      '3× Housemaster’s Commendations'
-      'Senior School Choir'
-      'Senior School Chamber Choir'
-      '1st Team Tennis'
-      "Duke of Edinburgh’s International Award – Bronze, Silver & Gold"
+      'Peer Mentor',
+      'Part-Time Tennis Coach for Pre-Prep & Prep students',
+      'Winner, Lectern Club (School public speaking competition)',
+      '3× Housemaster’s Commendations',
+      'Senior School Choir',
+      'Senior School Chamber Choir',
+      '1st Team Tennis',
+      "Duke of Edinburgh’s International Award – Bronze, Silver & Gold",
       "Participated in and helped plan school charity events, raising funds for the Rotary Orphanage and Kechara Soup Kitchen"
     ]
   }
