@@ -29,7 +29,13 @@ const Hero = () => {
           <span className="hero__meta-item hero__meta-item--badge">{PROFILE.openTo}</span>
         </div>
 
-        <p className="hero__bio">{PROFILE.bio}</p>
+        <div className="hero__bio">
+  {PROFILE.bio.map((paragraph, index) => (
+    <p key={index} style={{ marginBottom: '1rem' }}>
+      {paragraph}
+    </p>
+  ))}
+</div>
       </div>
     </div>
   );
