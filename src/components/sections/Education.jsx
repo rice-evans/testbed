@@ -1,10 +1,10 @@
 // Add, remove, or edit entries here — newest first.
 const SCHOOLS = [
   {
-    school: 'University Name',
-    degree: 'Degree, Field of Study',
+    school: 'Marlborough College Malaysia',
+    degree: 'International Baccalaurate & IGCSE',
     dates: '2016 — 2020',
-    notes: 'Relevant coursework, honors, or activities.'
+    notes: ''
   }
 ];
 
