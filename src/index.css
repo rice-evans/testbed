@@ -1,0 +1,59 @@
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #565f68;
+  --ink-faint: #8a9199;
+  --accent: #0a66c2;
+  --accent-hover: #004182;
+  --accent-soft: #eaf3fd;
+  --line: #ddd8d0;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --sidebar-w: 240px;
+  --content-max: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  /* CHANGED: Added a pristine, highly subtle dot-grid micro-texture 
+     that binds to your existing layout line colors dynamically. */
+  background-image: radial-gradient(color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
