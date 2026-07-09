@@ -1,10 +1,9 @@
 // Add, remove, or edit entries here — newest first.
 const CERTS = [
   {
-    name: 'Certificate Name',
-    issuer: 'Issuing Organization',
-    dates: 'Issued Jan 2025',
-    credentialId: 'Credential ID (optional)'
+    name: 'Medical Certificate 3rd Class',
+    issuer: 'Federal Aviation Administration',
+    dates: 'Issued December 2024',
   }
 ];
 
