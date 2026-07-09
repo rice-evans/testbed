@@ -41,7 +41,6 @@ const CERTS = [
     issuer: "Pivotal Contests 2024 Essay Competition",
     dates: 'Aug 2024',
   }
-
 ];
 
 const Certificates = () => {
