@@ -3,8 +3,46 @@ const CERTS = [
   {
     name: 'Medical Certificate 3rd Class',
     issuer: 'Federal Aviation Administration',
-    dates: 'Issued December 2024',
+    dates: 'December 2024',
   }
+
+  {
+    name: '5th Place - TSL Essay Competition',
+    issuer: 'Trust for Sustainable Living',
+    dates: 'May 2025',
+  }
+
+{
+    name: 'Silver Award - Senior BPhO',
+    issuer: 'British Physics Olympiad',
+    dates: 'Feb 2025',
+  }
+
+{
+    name: '5th Place - TSL Essay Competition',
+    issuer: 'Trust for Sustainable Living',
+    dates: 'May 2025',
+  }
+
+{
+    name: "Silver Award - DOfE",
+    issuer: "The Duke of Edinburgh's International Award",
+    dates: 'Feb 2025',
+  }
+
+{
+    name: "Bronze Award - DOfE",
+    issuer: "The Duke of Edinburgh's International Award",
+    dates: 'Jan 2025',
+  }
+
+{
+    name: "Top 100 - Pivotal Contest",
+    issuer: "Pivotal Contests 2024 Essay Competition",
+    dates: 'Aug 2024',
+  }
+
+
 ];
 
 const Certificates = () => {
