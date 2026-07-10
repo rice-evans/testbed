@@ -1,0 +1,45 @@
+import { Paperclip } from 'lucide-react';
+
+// Add, remove, or edit entries here — newest first.
+// attachments: optional array of { label, url } — shown as small linked chips below the entry.
+const EVENTS = [
+  {
+    name: 'Event or Conference Name',
+    role: 'Speaker — "Talk title goes here"',
+    dates: 'Mar 2025',
+    location: 'City, Country',
+    attachments: [
+      // { label: 'Slides', url: '/attachments/talk-slides.pdf' },
+    ]
+  }
+];
+
+const Events = () => {
+  return (
+    <ol className="timeline">
+      {EVENTS.map((e, i) => (
+        <li className="timeline__entry" key={`${e.name}-${i}`}>
+          <div className="timeline__when">{e.dates}</div>
+          <div className="timeline__main">
+            <h3 className="timeline__title">{e.name}</h3>
+            <p className="timeline__subtitle">
+              {e.role} <span className="timeline__loc">· {e.location}</span>
+            </p>
+            {e.attachments?.length > 0 && (
+              <div className="timeline__attachments">
+                {e.attachments.map((a, j) => (
+                  <a key={j} href={a.url} target="_blank" rel="noopener noreferrer" className="attachment-chip">
+                    <Paperclip size={11} strokeWidth={2} />
+                    {a.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+};
+
+export default Events;
