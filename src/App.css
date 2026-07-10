@@ -1,0 +1,908 @@
+:root {
+  --sidebar-w: 240px;
+  --banner-h: 260px;
+}
+
+/* ---------- Page + banner stacking ---------- */
+
+.page {
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.page-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--banner-h);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Tucked gradient fade closely to the left sidebar edge */
+.page-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--bg) 0%,
+    var(--bg) 8%,
+    color-mix(in srgb, var(--bg) 60%, transparent) 20%,
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.page-banner svg,
+.page-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Layout Structure ---------- */
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100vh;
+}
+
+.layout__sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.layout__content {
+  flex-grow: 1;
+  margin-left: var(--sidebar-w);
+  padding: 0 3.5rem 6rem;
+  /* FIX: Spans across the full available content page width layout cleanly */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ---------- Section shell ---------- */
+
+/* FIX: Removes custom width locks, stretching elements and lines to fill the viewport width */
+.section {
+  width: 100% !important;
+  max-width: 100% !important;
+  /* REDUCED: Changed vertical padding from 3.25rem to 1.75rem to pull text closer to lines */
+  padding: 1.75rem 0;
+  border-top: 1px dotted var(--line);
+  box-sizing: border-box;
+}
+
+.section:first-child,
+.section--flush {
+  border-top: none;
+}
+
+.section--hero {
+  padding-top: var(--banner-h);
+  /* REDUCED: Lowered hero padding bottom to match the new rhythm */
+  padding-bottom: 1.75rem;
+}
+
+.section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.section__eyebrow-index {
+  color: var(--accent);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0 0 1rem; 
+  color: var(--ink);
+}
+
+/* ---------- Hero ---------- */
+
+.hero__photo {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  border: 4px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+  margin-top: -80px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: 2.15rem;
+  font-weight: 500;
+  margin: 0 0 0.3rem;
+  line-height: 1.15;
+}
+
+.hero__headline {
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.hero__meta-item--badge {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hero__meta-dot {
+  color: var(--line);
+}
+
+.hero__bio {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 65ch;
+  margin: 0;
+}
+
+/* ---------- Timeline ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+  width: 100%;
+}
+
+.timeline__entry {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.timeline__when {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  padding-top: 0.2rem;
+}
+
+.timeline__title {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  margin: 0 0 0.2rem;
+  color: var(--ink);
+}
+
+.timeline__subtitle {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+.timeline__loc {
+  color: var(--ink-faint);
+}
+
+.timeline__note {
+  font-size: 0.88rem;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.timeline__points {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timeline__points li {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ---------- Media grid ---------- */
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  margin-top: 0; 
+}
+
+.media-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px dotted var(--line);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  background: var(--surface);
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+  /* The transition is now on the container, so the border animates too */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shrinks the ENTIRE tile (including the dotted border) inward */
+.media-tile:hover {
+  transform: scale(0.97);
+}
+
+.media-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-tile--more {
+  position: relative;
+}
+
+/* Background image specifically for the See More card */
+.media-tile__blurred-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  /* Light blur applied. Scaled up statically to 1.05 to prevent blurry edge bleeding */
+  filter: blur(3px) brightness(0.8);
+  transform: scale(1.05);
+}
+
+.media-tile__overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* See More button styles */
+.media-tile__overlay span {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  background: var(--surface);
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  border: 1px dotted var(--line);
+  /* Added transform to the transition property so it animates smoothly */
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+}
+
+/* See More button color shifting */
+.media-tile--more:hover .media-tile__overlay span {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  /* Counter-scale by ~1.031 to perfectly cancel out the 0.97 parent shrink, keeping the button locked in size */
+  transform: scale(1.031) !important;
+}
+
+/* Fullscreen Modal Layout for the Masonry Stream */
+.masonry-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--bg);
+  overflow-y: auto;
+  padding: 5rem 2rem 4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.masonry-modal--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FIX: Fully updated close button properties built around modern vector graphic icons.
+   Since Lucide vectors generate real physical width dimensions, this centers perfectly
+   and spins flawlessly inside its circular node wrapper layout. */
+.masonry-modal__close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2001;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  
+  /* FIX: Using explicit flex centering on the SVG vector element removes standard font baseline drift */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform-origin: center center;
+  transition: background 0.2s, color 0.2s, transform 0.25s ease-in-out;
+}
+
+.masonry-modal__close:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.masonry-modal__close svg {
+  display: block;
+}
+
+.masonry-modal__content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.masonry-modal__title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 2.5rem;
+  color: var(--ink);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.25rem 0 0;
+  border-top: 1px dotted var(--line);
+  width: 100%; 
+}
+
+.footer__actions {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.footer__copyright {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.footer__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 100px;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.footer__btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.footer__btn--primary:hover {
+  background: var(--accent-hover);
+}
+
+.footer__btn--ghost {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.footer__btn--ghost:hover {
+  background: var(--accent-soft);
+}
+
+/* Circular icon-only button (PDF/CV download) — same visual language as the
+   ghost button, just constrained to a perfect circle with no label. */
+.footer__btn--icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  justify-content: center;
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer__btn--icon:hover {
+  background: var(--accent-soft);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  :root {
+    --banner-h: 150px;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .layout__sidebar {
+    display: none;
+  }
+
+  .layout__content {
+    margin-left: 0;
+    padding: 0 1.5rem 4rem;
+    max-width: 100%;
+  }
+
+  .section--hero {
+    padding-top: calc(var(--banner-h) + 1rem);
+  }
+
+  .hero__photo {
+    width: 110px;
+    height: 110px;
+    margin-top: -55px;
+  }
+
+  .timeline__entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer: buttons wrap onto their own row, copyright text drops below them
+     and is allowed to wrap instead of forcing extra width. */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+  }
+
+  .footer__copyright {
+    white-space: normal;
+  }
+}
+
+/* ---------- Lightbox Overlay Layout ---------- */
+
+.media-tile--clickable {
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInLightbox 0.2s ease-out forwards;
+}
+
+.lightbox__stage {
+  max-width: 80vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  animation: scaleUpImg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Lightbox Utility Buttons */
+.lightbox__close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 3002;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background 0.2s, color 0.2s, transform 0.2s ease-in-out;
+}
+
+.lightbox__close:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+/* Centered Navigation Arrows */
+.lightbox__arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3001;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+.lightbox__arrow--left {
+  left: 2rem;
+}
+
+.lightbox__arrow--right {
+  right: 2rem;
+}
+
+.lightbox__arrow:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox__arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Caption shown below the image when open in the lightbox */
+.lightbox__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox__caption {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  text-align: center;
+  margin: 0;
+  max-width: 54ch;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Attachment chips on timeline entries ---------- */
+
+.timeline__attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: var(--surface);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+}
+
+.attachment-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------- Share Profile Card Sheet Modals ---------- */
+
+.share-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInLightbox 0.2s ease-out forwards;
+}
+
+.share-modal {
+  position: relative;
+  background: var(--surface);
+  border: 1px dotted var(--line);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 540px; /* Widened to allow links/emails to expand comfortably */
+  padding: 2.2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  animation: scaleUpImg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.share-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--ink-faint);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+.share-modal__close:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.share-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+
+/* Micro-shrinking Full-width Link Box Wrapper Container Layout */
+.share-modal__link-box {
+  position: relative;
+  background: var(--bg);
+  border: 1px dotted var(--line);
+  border-radius: 8px;
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  gap: 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Centers the inner email block perfectly without breaking container sizing */
+.share-modal__link-box--centered {
+  justify-content: center;
+}
+
+.share-modal__link-box:hover {
+  transform: scale(0.97);
+}
+
+.share-modal__link-box--copied {
+  border-style: dotted !important;
+  border-color: #10b981 !important;
+}
+
+.share-modal__url {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center; /* Forces the text content itself to center */
+  width: 100%; /* Spans full width to ensure text-align behaves correctly */
+}
+
+/* Float positioning stops the layout from expanding when text appears */
+.share-modal__link-box--centered .share-modal__tooltip {
+  position: absolute;
+  right: 1.25rem;
+  background: var(--bg); /* Matches background to mask text underneath if they overlap slightly */
+  padding-left: 0.5rem;
+}
+
+.share-modal__tooltip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+  animation: fadeInLightbox 0.15s ease-out;
+}
+
+.share-modal__label {
+  font-size: 0.88rem;
+  color: var(--ink-faint);
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 500;
+}
+
+/* App Trigger Blocks Row Elements Layout */
+.share-modal__apps {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.share-modal__app-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px dotted var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+.share-modal__app-btn:hover {
+  transform: scale(0.97); /* Buttons now share uniform shrinking physics */
+}
+
+.share-modal__app-btn--gmail:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #ef4444;
+  border-style: dotted;
+}
+
+.share-modal__app-btn--instagram:hover {
+  background: #fdf2f8;
+  border-color: #db2777;
+  color: #db2777;
+  border-style: dotted;
+}
+
+.share-modal__app-btn--whatsapp:hover {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #22c55e;
+  border-style: dotted;
+}
+
+.share-modal__app-btn--link:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  border-style: dotted;
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpImg {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments for mobile touch sizes */
+@media (max-width: 768px) {
+  .lightbox__stage {
+    max-width: 95vw;
+  }
+  .lightbox__arrow {
+    width: 44px;
+    height: 44px;
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+  }
+  .lightbox__arrow--left { left: 0.75rem; }
+  .lightbox__arrow--right { right: 0.75rem; }
+  
+  .share-modal {
+    width: calc(100% - 2rem);
+    padding: 1.5rem;
+  }
+}
