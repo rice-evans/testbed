@@ -3,6 +3,14 @@
   --banner-h: 260px;
 }
 
+/* ---------- Global Fixes ---------- */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 /* ---------- Page + banner stacking ---------- */
 
 .page {
@@ -282,11 +290,9 @@
   overflow: hidden;
   cursor: pointer;
   isolation: isolate;
-  /* The transition is now on the container, so the border animates too */
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Shrinks the ENTIRE tile (including the dotted border) inward */
 .media-tile:hover {
   transform: scale(0.97);
 }
@@ -302,7 +308,6 @@
   position: relative;
 }
 
-/* Background image specifically for the See More card */
 .media-tile__blurred-img {
   position: absolute;
   inset: 0;
@@ -310,7 +315,6 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  /* Light blur applied. Scaled up statically to 1.05 to prevent blurry edge bleeding */
   filter: blur(3px) brightness(0.8);
   transform: scale(1.05);
 }
@@ -326,7 +330,6 @@
   height: 100%;
 }
 
-/* See More button styles */
 .media-tile__overlay span {
   font-family: var(--font-body);
   font-weight: 600;
@@ -336,17 +339,14 @@
   padding: 0.5rem 1.1rem;
   border-radius: 6px;
   border: 1px dotted var(--line);
-  /* Added transform to the transition property so it animates smoothly */
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(1);
 }
 
-/* See More button color shifting */
 .media-tile--more:hover .media-tile__overlay span {
   color: var(--accent);
   border-color: var(--accent);
   background: var(--accent-soft);
-  /* Counter-scale by ~1.031 to perfectly cancel out the 0.97 parent shrink, keeping the button locked in size */
   transform: scale(1.031) !important;
 }
 
@@ -368,9 +368,6 @@
   visibility: visible;
 }
 
-/* FIX: Fully updated close button properties built around modern vector graphic icons.
-   Since Lucide vectors generate real physical width dimensions, this centers perfectly
-   and spins flawlessly inside its circular node wrapper layout. */
 .masonry-modal__close {
   position: fixed;
   top: 1.5rem;
@@ -382,14 +379,11 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  
-  /* FIX: Using explicit flex centering on the SVG vector element removes standard font baseline drift */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   margin: 0;
-  
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transform-origin: center center;
@@ -424,6 +418,7 @@
 
 .footer {
   display: flex;
+  flex-wrap: wrap; /* Allows natural wrapping behavior on smaller widths */
   align-items: center;
   justify-content: space-between;
   padding: 3.25rem 0 0;
@@ -433,6 +428,7 @@
 
 .footer__actions {
   display: flex;
+  align-items: center;
   gap: 0.9rem;
 }
 
@@ -454,7 +450,7 @@
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .footer__btn--primary {
@@ -476,7 +472,31 @@
   background: var(--accent-soft);
 }
 
-/* ---------- Responsive ---------- */
+/* Circular PDF Download Node Integration */
+.footer__btn--circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px dotted var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer__btn--circle:hover {
+  transform: scale(0.95); /* Uniform micro-shrink physical property matching other link boxes */
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  border-style: dotted;
+}
+
+/* ---------- Responsive Breakpoints ---------- */
 
 @media (max-width: 900px) {
   :root {
@@ -517,6 +537,30 @@
   }
 }
 
+/* Targeted Layout Overrides for Mobile Devices */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .footer__actions {
+    order: 1; /* Locks action buttons at top block context */
+  }
+
+  .footer__copyright {
+    order: 2; /* Pushes copyright text cleanly underneath the actions */
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    white-space: normal; /* Disables clip overflow if text extends on extremely narrow views */
+    width: 100%;
+  }
+}
+
 /* ---------- Lightbox Overlay Layout ---------- */
 
 .media-tile--clickable {
@@ -543,6 +587,8 @@
   align-items: center;
   justify-content: center;
   user-select: none;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .lightbox__img {
@@ -554,7 +600,6 @@
   animation: scaleUpImg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Lightbox Utility Buttons */
 .lightbox__close {
   position: fixed;
   top: 1.5rem;
@@ -580,7 +625,6 @@
   transform: rotate(90deg);
 }
 
-/* Centered Navigation Arrows */
 .lightbox__arrow {
   position: fixed;
   top: 50%;
@@ -600,13 +644,8 @@
   transition: background 0.2s, color 0.2s, transform 0.2s ease;
 }
 
-.lightbox__arrow--left {
-  left: 2rem;
-}
-
-.lightbox__arrow--right {
-  right: 2rem;
-}
+.lightbox__arrow--left { left: 2rem; }
+.lightbox__arrow--right { right: 2rem; }
 
 .lightbox__arrow:hover {
   background: var(--accent-soft);
@@ -616,14 +655,6 @@
 
 .lightbox__arrow:active {
   transform: translateY(-50%) scale(0.95);
-}
-
-/* Caption shown below the image when open in the lightbox */
-.lightbox__stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
 }
 
 .lightbox__caption {
@@ -690,7 +721,7 @@
   border: 1px dotted var(--line);
   border-radius: 12px;
   width: 100%;
-  max-width: 540px; /* Widened to allow links/emails to expand comfortably */
+  max-width: 540px;
   padding: 2.2rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
@@ -728,7 +759,6 @@
   color: var(--ink);
 }
 
-/* Micro-shrinking Full-width Link Box Wrapper Container Layout */
 .share-modal__link-box {
   position: relative;
   background: var(--bg);
@@ -744,7 +774,6 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Centers the inner email block perfectly without breaking container sizing */
 .share-modal__link-box--centered {
   justify-content: center;
 }
@@ -765,15 +794,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center; /* Forces the text content itself to center */
-  width: 100%; /* Spans full width to ensure text-align behaves correctly */
+  text-align: center;
+  width: 100%;
 }
 
-/* Float positioning stops the layout from expanding when text appears */
 .share-modal__link-box--centered .share-modal__tooltip {
   position: absolute;
   right: 1.25rem;
-  background: var(--bg); /* Matches background to mask text underneath if they overlap slightly */
+  background: var(--bg);
   padding-left: 0.5rem;
 }
 
@@ -792,7 +820,6 @@
   font-weight: 500;
 }
 
-/* App Trigger Blocks Row Elements Layout */
 .share-modal__apps {
   display: flex;
   gap: 0.75rem;
@@ -814,7 +841,7 @@
 }
 
 .share-modal__app-btn:hover {
-  transform: scale(0.97); /* Buttons now share uniform shrinking physics */
+  transform: scale(0.97);
 }
 
 .share-modal__app-btn--gmail:hover {
@@ -857,7 +884,7 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Responsive adjustments for mobile touch sizes */
+/* Lightbox Adjustments for Small Touchscreens */
 @media (max-width: 768px) {
   .lightbox__stage {
     max-width: 95vw;
@@ -873,36 +900,5 @@
   .share-modal {
     width: calc(100% - 2rem);
     padding: 1.5rem;
-  }
-}
-/* --- 1. Fix the horizontal scroll bug --- */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-}
-
-/* --- 2. Fix the Footer layout on mobile --- */
-/* Assuming your footer container has a class like .footer or .footer-container */
-.footer {
-  display: flex;
-  flex-wrap: wrap; /* This allows items to flow to the next line if they don't fit */
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  /* Target the specific copyright text */
-  .footer__copyright { 
-    order: 3; /* Pushes the text below the buttons */
-    margin-top: 1rem;
-    text-align: center;
-    width: 100%;
   }
 }
