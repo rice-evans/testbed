@@ -9,6 +9,7 @@ import Events from './components/sections/Events.jsx';
 import Certificates from './components/sections/Certificates.jsx';
 import Media from './components/sections/Media.jsx';
 import Footer from './components/sections/Footer.jsx';
+import usePrintCV from './hooks/usePrintCV.js';
 import './App.css';
 
 const NAV_ITEMS = [
@@ -21,6 +22,7 @@ const NAV_ITEMS = [
 ];
 
 function App() {
+  usePrintCV();
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRefs = useRef({});
   const isClickScrolling = useRef(false);
