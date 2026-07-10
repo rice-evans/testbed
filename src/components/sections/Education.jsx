@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Paperclip } from 'lucide-react';
+import AttachmentLightbox from '../AttachmentLightbox.jsx';
 
 // Add, remove, or edit entries here — newest first.
 // attachments: optional array of { label, url } — shown as small linked chips below the entry.
@@ -38,35 +40,44 @@ const SCHOOLS = [
 ];
 
 const Education = () => {
+  const [activeDoc, setActiveDoc] = useState(null);
+
   return (
-    <ol className="timeline">
-      {SCHOOLS.map((s, i) => (
-        <li className="timeline__entry" key={`${s.school}-${i}`}>
-          <div className="timeline__when">{s.dates}</div>
-          <div className="timeline__main">
-            <h3 className="timeline__title">{s.school}</h3>
-            <p className="timeline__subtitle">{s.degree}</p>
-            {s.notes && s.notes.length > 0 && (
-              <ul className="timeline__notes-list">
-                {s.notes.map((note, index) => (
-                  <li key={index} className="timeline__note">{note}</li>
-                ))}
-              </ul>
-            )}
-            {s.attachments?.length > 0 && (
-              <div className="timeline__attachments">
-                {s.attachments.map((a, j) => (
-                  <a key={j} href={a.url} target="_blank" rel="noopener noreferrer" className="attachment-chip">
-                    <Paperclip size={11} strokeWidth={2} />
-                    {a.label}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        </li>
-      ))}
-    </ol>
+    <>
+      <ol className="timeline">
+        {SCHOOLS.map((s, i) => (
+          <li className="timeline__entry" key={`${s.school}-${i}`}>
+            <div className="timeline__when">{s.dates}</div>
+            <div className="timeline__main">
+              <h3 className="timeline__title">{s.school}</h3>
+              <p className="timeline__subtitle">{s.degree}</p>
+              {s.notes && s.notes.length > 0 && (
+                <ul className="timeline__notes-list">
+                  {s.notes.map((note, index) => (
+                    <li key={index} className="timeline__note">{note}</li>
+                  ))}
+                </ul>
+              )}
+              {s.attachments?.length > 0 && (
+                <div className="timeline__attachments">
+                  {s.attachments.map((a, j) => (
+                    <button 
+                      key={j} 
+                      onClick={() => setActiveDoc(a)} 
+                      className="attachment-chip"
+                    >
+                      <Paperclip size={11} strokeWidth={2} />
+                      {a.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+      <AttachmentLightbox attachment={activeDoc} onClose={() => setActiveDoc(null)} />
+    </>
   );
 };
 
