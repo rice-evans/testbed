@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, Mail, X, Link as LinkIcon, Instagram } from 'lucide-react';
+import { Share2, Mail, X, Link as LinkIcon, Instagram, Download } from 'lucide-react';
 
 const Footer = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -57,15 +57,26 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__actions">
-        <button type="button" className="footer__btn footer__btn--primary" onClick={() => setIsShareOpen(true)}>
-          <Share2 size={16} strokeWidth={1.8} />
-          Share profile
-        </button>
-        <button type="button" className="footer__btn footer__btn--ghost" onClick={() => setIsContactOpen(true)}>
-          <Mail size={16} strokeWidth={1.8} />
-          Contact me
-        </button>
-      </div>
+  <button className="footer__btn footer__btn--primary" onClick={() => setIsContactOpen(true)}>
+    <Mail size={16} strokeWidth={2.5} />
+    Contact Me
+  </button>
+  
+  {/* NEW: Circular PDF Download Button */}
+  <a 
+    href="/attachments/Rhys-Evans-CV.pdf" 
+    download="Rhys-Evans-CV.pdf"
+    className="footer__btn--circle"
+    title="Download CV"
+  >
+    <Download size={18} strokeWidth={2.5} />
+  </a>
+
+  <button className="footer__btn footer__btn--ghost" onClick={() => setIsShareOpen(true)}>
+    <Share2 size={16} strokeWidth={2.5} />
+    Share
+  </button>
+</div>
 
       <div className="footer__copyright">
         Rhys Putra Evans, 2026
