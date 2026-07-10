@@ -66,6 +66,6 @@ html, body {
    devices on 'auto' so Chrome's pull-to-refresh still works. */
 @media (hover: hover) and (pointer: fine) {
   html, body {
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: none;   /* was: contain */
   }
 }
