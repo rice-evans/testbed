@@ -7,14 +7,16 @@
 
 html, body {
   overflow-x: hidden;
+  overflow-y: auto; /* FIX: Explicitly forces the vertical scroll track to remain active */
   width: 100%;
-  position: relative;
+  min-height: 100vh; /* FIX: Forces the canvas boundary to span fully */
 }
 
 /* ---------- Page + banner stacking ---------- */
 
 .page {
   position: relative;
+  width: 100%;
 }
 
 .page-banner {
