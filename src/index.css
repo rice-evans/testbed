@@ -63,5 +63,4 @@ html, body {
   /* Prevent any child from ever introducing horizontal scroll (most noticeable on
      mobile, where a single slightly-too-wide element reveals blank space either
      side when the page is dragged left/right). */
-  overflow-x: hidden;
 }
