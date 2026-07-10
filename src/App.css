@@ -875,3 +875,34 @@
     padding: 1.5rem;
   }
 }
+/* --- 1. Fix the horizontal scroll bug --- */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* --- 2. Fix the Footer layout on mobile --- */
+/* Assuming your footer container has a class like .footer or .footer-container */
+.footer {
+  display: flex;
+  flex-wrap: wrap; /* This allows items to flow to the next line if they don't fit */
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Target the specific copyright text */
+  .footer__copyright { 
+    order: 3; /* Pushes the text below the buttons */
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+}
