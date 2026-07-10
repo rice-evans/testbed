@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Paperclip } from 'lucide-react';
+import AttachmentLightbox from '../AttachmentLightbox.jsx';
 
 // Add, remove, or edit entries here — newest first.
 // attachments: optional array of { label, url } — shown as small linked chips below the entry.
@@ -19,37 +21,46 @@ const JOBS = [
 ];
 
 const Experience = () => {
+  const [activeDoc, setActiveDoc] = useState(null);
+
   return (
-    <ol className="timeline">
-      {JOBS.map((job, i) => (
-        <li className="timeline__entry" key={`${job.company}-${i}`}>
-          <div className="timeline__when">{job.dates}</div>
-          <div className="timeline__main">
-            <h3 className="timeline__title">{job.role}</h3>
-            <p className="timeline__subtitle">
-              {job.company} <span className="timeline__loc">· {job.location}</span>
-            </p>
-            {job.points?.length > 0 && (
-              <ul className="timeline__points">
-                {job.points.map((p, j) => (
-                  <li key={j}>{p}</li>
-                ))}
-              </ul>
-            )}
-            {job.attachments?.length > 0 && (
-              <div className="timeline__attachments">
-                {job.attachments.map((a, j) => (
-                  <a key={j} href={a.url} target="_blank" rel="noopener noreferrer" className="attachment-chip">
-                    <Paperclip size={11} strokeWidth={2} />
-                    {a.label}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        </li>
-      ))}
-    </ol>
+    <>
+      <ol className="timeline">
+        {JOBS.map((job, i) => (
+          <li className="timeline__entry" key={`${job.company}-${i}`}>
+            <div className="timeline__when">{job.dates}</div>
+            <div className="timeline__main">
+              <h3 className="timeline__title">{job.role}</h3>
+              <p className="timeline__subtitle">
+                {job.company} <span className="timeline__loc">· {job.location}</span>
+              </p>
+              {job.points?.length > 0 && (
+                <ul className="timeline__points">
+                  {job.points.map((p, j) => (
+                    <li key={j}>{p}</li>
+                  ))}
+                </ul>
+              )}
+              {job.attachments?.length > 0 && (
+                <div className="timeline__attachments">
+                  {job.attachments.map((a, j) => (
+                    <button 
+                      key={j} 
+                      onClick={() => setActiveDoc(a)} 
+                      className="attachment-chip"
+                    >
+                      <Paperclip size={11} strokeWidth={2} />
+                      {a.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+      <AttachmentLightbox attachment={activeDoc} onClose={() => setActiveDoc(null)} />
+    </>
   );
 };
 
