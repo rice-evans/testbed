@@ -489,6 +489,8 @@
   border-color: var(--accent);
   color: var(--accent);
   text-decoration: none;
+  align-self: flex-start;   /* add this */
+  flex-shrink: 0;           /* add this */
 }
 
 .footer__btn--icon:hover {
