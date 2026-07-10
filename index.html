@@ -30,6 +30,36 @@
     <!-- The banner is the largest above-the-fold image (LCP candidate) — start fetching it
          immediately instead of waiting for React to mount and request it. -->
     <link rel="preload" as="image" href="/Banner.webp" fetchpriority="high" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rhys Putra Evans",
+      "jobTitle": "Aspiring Commercial Pilot",
+      "description": "Incoming iATPL Student at 43 Air School. IB Diploma graduate of Marlborough College Malaysia.",
+      "url": "https://rhysprofile.com",
+      "image": "https://rhysprofile.com/Profile.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bali, Indonesia – Singapore"
+      },
+      "email": "rhys.p.evans@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/rice_evans_/"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Marlborough College Malaysia"
+        }
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Asia Corporate Jet"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
