@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rhys Evans — Profile</title>
+    <meta name="description" content="Personal profile — experience, education, events and certificates." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Rhys Evans — Profile" />
+    <meta property="og:description" content="Personal profile — experience, education, events and certificates." />
+    <meta property="og:image" content="/Banner.webp" />
+    <meta property="og:url" content="https://rhysprofile.com" />
+    <meta property="og:site_name" content="Rhys Evans" />
+
+    <!-- Twitter Card (falls back to Open Graph tags where omitted) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rhys Evans — Profile" />
+    <meta name="twitter:description" content="Personal profile — experience, education, events and certificates." />
+    <meta name="twitter:image" content="/Banner.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- The banner is the largest above-the-fold image (LCP candidate) — start fetching it
+         immediately instead of waiting for React to mount and request it. -->
+    <link rel="preload" as="image" href="/Banner.webp" fetchpriority="high" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2026-01-01",
+  "dateModified": "2026-07-10",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Rhys Putra Evans",
+    "alternateName": "Rhys Evans",
+    "jobTitle": "Aspiring Commercial Pilot",
+    "description": "Incoming iATPL Student at 43 Air School. IB Diploma graduate of Marlborough College Malaysia.",
+    "url": "https://rhysprofile.com",
+    "image": "https://rhysprofile.com/Profile.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bali, Indonesia – Singapore"
+    },
+    "email": "rhys.p.evans@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/rice_evans_/"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Marlborough College Malaysia"
+      }
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Asia Corporate Jet"
+    }
+  }
+}
+</script>
+    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7bdc24351f8b4da9adb7a3088deab711"}'></script><!-- End Cloudflare Web Analytics -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
