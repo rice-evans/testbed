@@ -11,12 +11,14 @@ const CERTS = [
       // { label: 'Certificate PDF', url: '/attachments/faa-medical.pdf' },
     ]
   },
-  {
-    name: '5th Place - TSL Essay Competition',
-    issuer: 'Trust for Sustainable Living',
-    dates: 'May 2025',
-    attachments: []
-  },
+{
+  name: '5th Place - TSL Essay Competition',
+  issuer: 'Trust for Sustainable Living',
+  dates: 'May 2025',
+  attachments: [
+    { label: 'TSL Certificate', url: '/attachments/TSL-5th-Place.jpg' }
+  ]
+},
   {
     name: 'Silver Award - Senior BPhO',
     issuer: 'British Physics Olympiad',
