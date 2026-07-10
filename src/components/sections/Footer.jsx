@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, Mail, X, Link as LinkIcon, Instagram } from 'lucide-react';
+import { Share2, Mail, X, Link as LinkIcon, Instagram, Download } from 'lucide-react';
 
 const Footer = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -65,6 +65,17 @@ const Footer = () => {
           <Mail size={16} strokeWidth={1.8} />
           Contact me
         </button>
+        
+        {/* PDF Download Button */}
+        <a 
+          href="/Resume.pdf" 
+          download="Rhys_Evans_Resume.pdf" 
+          className="footer__btn footer__btn--circle" 
+          title="Download PDF Resume"
+          aria-label="Download PDF Resume"
+        >
+          <Download size={16} strokeWidth={1.8} />
+        </a>
       </div>
 
       <div className="footer__copyright">
