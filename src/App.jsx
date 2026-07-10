@@ -91,23 +91,62 @@ function App() {
             <Hero />
           </Section>
 
-          <Section id="experience" index="01" eyebrow="Experience" title="Where I've worked" register={registerSection}>
+          <Section 
+            id="experience" 
+            index="01" 
+            eyebrow="Experience" 
+            title="Where I've worked" 
+            register={registerSection}
+            attachments={[
+              { name: "Aviation_CV.pdf", url: "/documents/Aviation_CV.pdf" }
+            ]}
+          >
             <Experience />
           </Section>
 
-          <Section id="education" index="02" eyebrow="Education" title="Where I studied" register={registerSection}>
+          <Section 
+            id="education" 
+            index="02" 
+            eyebrow="Education" 
+            title="Where I studied" 
+            register={registerSection}
+            attachments={[
+              { name: "IB_Diploma_Transcript.pdf", url: "/documents/IB_Transcript.pdf" }
+            ]}
+          >
             <Education />
           </Section>
 
-          <Section id="events" index="03" eyebrow="Events" title="Talks & appearances" register={registerSection}>
+          <Section 
+            id="events" 
+            index="03" 
+            eyebrow="Events" 
+            title="Talks & appearances" 
+            register={registerSection}
+            attachments={[]} // Left empty intentionally; no chips will render here
+          >
             <Events />
           </Section>
 
-          <Section id="certificates" index="04" eyebrow="Certificates" title="Credentials" register={registerSection}>
+          <Section 
+            id="certificates" 
+            index="04" 
+            eyebrow="Certificates" 
+            title="Credentials" 
+            register={registerSection}
+            attachments={[]}
+          >
             <Certificates />
           </Section>
 
-          <Section id="media" index="05" eyebrow="Media" title="Photos & documents" register={registerSection}>
+          <Section 
+            id="media" 
+            index="05" 
+            eyebrow="Media" 
+            title="Photos & documents" 
+            register={registerSection}
+            attachments={[]}
+          >
             <Media />
           </Section>
 
