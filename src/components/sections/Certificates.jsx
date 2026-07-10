@@ -14,7 +14,7 @@ const CERTS = [
 {
   name: '5th Place - TSL Essay Competition',
   issuer: 'Trust for Sustainable Living',
-  dates: 'May 2025',
+  dates: 'July 2025',
   attachments: [
     { label: 'TSL Certificate', url: '/attachments/TSL-5th-Place.jpg' }
   ]
