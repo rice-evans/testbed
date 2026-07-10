@@ -481,16 +481,16 @@
 /* Circular icon-only button (PDF/CV download) — same visual language as the
    ghost button, just constrained to a perfect circle with no label. */
 .footer__btn--icon {
-  width: 44px;
-  height: 44px;
+  aspect-ratio: 1 / 1;      /* replaces width: 44px; height: 44px; */
+  min-width: 44px;
   padding: 0;
   justify-content: center;
   background: transparent;
   border-color: var(--accent);
   color: var(--accent);
   text-decoration: none;
-  align-self: flex-start;   /* add this */
-  flex-shrink: 0;           /* add this */
+  flex-shrink: 0;
+  /* remove align-self: flex-start */
 }
 
 .footer__btn--icon:hover {
