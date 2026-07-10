@@ -33,7 +33,7 @@ const CookieConsent = () => {
   return (
     <div className="cookie-consent" role="status">
       <p className="cookie-consent__text">
-        This website uses Cloudflare Analytics to collect anonymous usage data that helps us
+        This website uses Cloudflare Analytics to collect anonymous usage data that helps me
         improve site performance and functionality. No personal, sensitive, or identifiable
         information is collected or accessible to me. To find out more, a full privacy policy
         can be found at the bottom of this page.
