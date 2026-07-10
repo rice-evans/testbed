@@ -31,23 +31,23 @@ import g8Full from '../../assets/images/Gallery8.webp';
 // opens the gallery never downloads it, but it looks properly sharp when they do.
 // `caption`: optional string shown below the image when opened in the lightbox.
 const PREVIEW_PHOTOS = [
-  { id: "1", thumb: g1Thumb, img: g1Full, caption: "" },
-  { id: "2", thumb: g2Thumb, img: g2Full, caption: "" },
-  { id: "3", thumb: g3Thumb, img: g3Full, caption: "" },
-  { id: "4", thumb: g4Thumb, img: g4Full, caption: "" },
-  { id: "5", thumb: g5Thumb, img: g5Full, caption: "" },
+  { id: "1", thumb: g1Thumb, img: g1Full, caption: "Leaver's Assembly, Marlborough College Malaysia, 2026" },
+  { id: "2", thumb: g2Thumb, img: g2Full, caption: "Teddy Bear Picnic with Early Years Pupils, Marlborough College Malaysia, 2026" },
+  { id: "3", thumb: g3Thumb, img: g3Full, caption: "Leaver's Dinner, Marlborough College Malaysia, 2026" },
+  { id: "4", thumb: g4Thumb, img: g4Full, caption: "Leaver's Dinner, Marlborough College Malaysia, 2026" },
+  { id: "5", thumb: g5Thumb, img: g5Full, caption: "Duke of Edinburgh's Gold Expedition, Nepal, 2026" },
   { id: "6", thumb: g6Thumb, img: g6Full, caption: "" },
 ];
 
 const MASONRY_ITEMS = [
-  { id: "m1", thumb: g1Thumb, img: g1Full, url: "#", height: 450, caption: "" },
-  { id: "m2", thumb: g2Thumb, img: g2Full, url: "#", height: 320, caption: "" },
-  { id: "m3", thumb: g3Thumb, img: g3Full, url: "#", height: 500, caption: "" },
-  { id: "m4", thumb: g4Thumb, img: g4Full, url: "#", height: 380, caption: "" },
-  { id: "m5", thumb: g5Thumb, img: g5Full, url: "#", height: 550, caption: "" },
-  { id: "m6", thumb: g6Thumb, img: g6Full, url: "#", height: 300, caption: "" },
-  { id: "m7", thumb: g7Thumb, img: g7Full, url: "#", height: 480, caption: "" },
-  { id: "m8", thumb: g8Thumb, img: g8Full, url: "#", height: 340, caption: "" },
+  { id: "m1", thumb: g1Thumb, img: g1Full, url: "#", height: 450, caption: "Leaver's Assembly, Marlborough College Malaysia, 2026" },
+  { id: "m2", thumb: g2Thumb, img: g2Full, url: "#", height: 320, caption: "Teddy Bear Picnic with Early Years Pupils, Marlborough College Malaysia, 2026" },
+  { id: "m3", thumb: g3Thumb, img: g3Full, url: "#", height: 500, caption: "Leaver's Dinner, Marlborough College Malaysia, 2026" },
+  { id: "m4", thumb: g4Thumb, img: g4Full, url: "#", height: 380, caption: "Leaver's Dinner, Marlborough College Malaysia, 2026" },
+  { id: "m5", thumb: g5Thumb, img: g5Full, url: "#", height: 550, caption: "Duke of Edinburgh's Gold Expedition, Nepal, 2026" },
+  { id: "m6", thumb: g6Thumb, img: g6Full, url: "#", height: 300, caption: "Duke of Edinburgh's Gold Expedition, Nepal, 2026" },
+  { id: "m7", thumb: g7Thumb, img: g7Full, url: "#", height: 480, caption: "Duke of Edinburgh's Gold Expedition, Nepal, 2026" },
+  { id: "m8", thumb: g8Thumb, img: g8Full, url: "#", height: 340, caption: "Duke of Edinburgh's Gold Expedition, Nepal, 2026" },
   { id: "m9", thumb: "https://picsum.photos/id/1074/300/450?grayscale", img: "https://picsum.photos/id/1074/600/900?grayscale", url: "#", height: 460, caption: "" },
 ];
 
