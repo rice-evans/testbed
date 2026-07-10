@@ -7,6 +7,7 @@
 
 .page {
   position: relative;
+  overflow-x: hidden; /* Fixes mobile horizontal blank space scrolling */
 }
 
 .page-banner {
@@ -873,5 +874,66 @@
   .share-modal {
     width: calc(100% - 2rem);
     padding: 1.5rem;
+  }
+}
+/* PDF Document Lightbox */
+.lightbox__pdf {
+  width: 80vw;
+  height: 75vh;
+  border-radius: 6px;
+  border: none;
+  background: var(--surface);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  animation: scaleUpImg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 768px) {
+  .lightbox__pdf {
+    width: 95vw;
+    height: 85vh;
+  }
+}
+/* ---------- Mobile Footer Overrides ---------- */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .footer__actions {
+    order: 1; /* Locks buttons to the top */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer__copyright {
+    order: 2; /* Drops the 2026 text below the buttons */
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    white-space: normal; 
+    width: 100%;
+  }
+}
+
+/* ---------- PDF Document Lightbox ---------- */
+.lightbox__pdf {
+  width: 80vw;
+  height: 75vh;
+  border-radius: 6px;
+  border: none;
+  background: var(--surface);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  animation: scaleUpImg 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 768px) {
+  .lightbox__pdf {
+    width: 95vw;
+    height: 85vh;
   }
 }
