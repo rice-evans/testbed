@@ -58,6 +58,4 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-html, body {
-  overscroll-behavior: none;
-}
+/* FIX: Removed overscroll-behavior lock that was freezing navigation layers */
