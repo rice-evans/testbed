@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Rhys Evans</title>
+    <meta name="robots" content="noindex" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #fbfaf8;
+        --surface: #ffffff;
+        --ink: #1a1a1a;
+        --ink-soft: #565f68;
+        --ink-faint: #8a9199;
+        --accent: #0a66c2;
+        --accent-hover: #004182;
+        --accent-soft: #eaf3fd;
+        --line: #ddd8d0;
+
+        --font-display: 'Fraunces', serif;
+        --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: 'IBM Plex Mono', monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        background-image: radial-gradient(color-mix(in srgb, var(--line) 35%, transparent) 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: var(--ink);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        padding: 2rem;
+      }
+
+      .not-found {
+        text-align: center;
+        max-width: 420px;
+      }
+
+      .not-found__mark {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 1.75rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        color: var(--accent);
+        background: var(--accent-soft);
+        box-shadow: 0 0 0 1px var(--line);
+      }
+
+      .not-found__eyebrow {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.55rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin-bottom: 0.75rem;
+      }
+
+      .not-found__eyebrow span {
+        color: var(--accent);
+      }
+
+      .not-found h1 {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 500;
+        margin: 0 0 0.85rem;
+        color: var(--ink);
+      }
+
+      .not-found p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        margin: 0 0 2rem;
+      }
+
+      .not-found__link {
+        display: inline-block;
+        border-radius: 100px;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background: var(--accent);
+        color: #fff;
+        transition: background 0.15s ease;
+      }
+
+      .not-found__link:hover {
+        background: var(--accent-hover);
+      }
+
+      .not-found__link:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="not-found">
+      <div class="not-found__mark">RE</div>
+      <span class="not-found__eyebrow"><span>404</span> Not found</span>
+      <h1>This page doesn't exist</h1>
+      <p>
+        The page you're looking for may have been moved or never existed.
+        Head back to the profile to find what you need.
+      </p>
+      <a class="not-found__link" href="/">Back to profile</a>
+    </div>
+  </body>
+</html>
