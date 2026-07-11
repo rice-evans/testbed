@@ -66,7 +66,7 @@ const Footer = () => {
           <Mail size={16} strokeWidth={1.8} />
           Contact me
         </button>
-        <a
+        
           href="/attachments/Rhys-Evans-CV.pdf"
           download="Rhys-Evans-CV.pdf"
           className="footer__btn footer__btn--icon"
@@ -167,7 +167,7 @@ const Footer = () => {
             </button>
             <h3 className="privacy-modal__title">Privacy Policy</h3>
             <div className="privacy-modal__body">
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--ink-faint)' }}>
+              <p style={{ fontWeight: 700 }}>
                 Last updated: July 2026
               </p>
               <p>
