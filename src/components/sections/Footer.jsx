@@ -64,7 +64,7 @@ const Footer = () => {
           <Mail size={16} strokeWidth={1.8} />
           Contact me
         </button>
-        
+        <a
           href="/attachments/Rhys-Evans-CV.pdf"
           download="Rhys-Evans-CV.pdf"
           className="footer__btn footer__btn--icon"
