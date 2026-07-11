@@ -6,47 +6,6 @@
     <title>Rhys Evans — Profile</title>
     <meta name="description" content="Personal profile — experience, education, events and certificates." />
 
-    <!-- Critical, inline styles for the pre-mount loading screen below. Kept inline
-         (not in App.css) so it paints immediately on slow connections, before the
-         app bundle and stylesheet have finished downloading. -->
-    <style>
-      #initial-loader {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #fbfaf8;
-        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      #initial-loader__mark {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 1.1rem;
-        color: #0a66c2;
-        background: #eaf3fd;
-        box-shadow: 0 0 0 1px #ddd8d0;
-        animation: initial-loader-pulse 1.1s ease-in-out infinite;
-      }
-      .initial-loader--done {
-        opacity: 0;
-        pointer-events: none;
-      }
-      @keyframes initial-loader-pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(0.92); opacity: 0.75; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        #initial-loader__mark { animation: none; }
-      }
-    </style>
-
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Rhys Evans — Profile" />
@@ -110,9 +69,6 @@
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7bdc24351f8b4da9adb7a3088deab711"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
   <body>
-    <div id="initial-loader" aria-hidden="true">
-      <div id="initial-loader__mark">RE</div>
-    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

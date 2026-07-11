@@ -167,54 +167,30 @@ const Footer = () => {
             </button>
             <h3 className="privacy-modal__title">Privacy Policy</h3>
             <div className="privacy-modal__body">
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--ink-faint)' }}>
-                Last updated: July 2026
-              </p>
               <p>
-                This Privacy Policy explains how I use analytics on this website and what
-                information is collected when you visit. I have designed this website with
-                privacy in mind, and only limited, anonymous usage data is collected to help
-                improve performance and user experience.
+                [Placeholder — introductory paragraph explaining what this policy covers and
+                when it was last updated goes here.]
               </p>
-
-              <h4>Information I Collect</h4>
+              <h4>Information We Collect</h4>
               <p>
-                This website uses Cloudflare Analytics to collect anonymous, aggregated usage
-                information. This may include general information such as page views, referring
-                websites, browser type, operating system, device type, and approximate location
-                at a country or regional level.
+                [Placeholder — describe the anonymous analytics data collected via Cloudflare
+                Analytics, e.g. page views, referrers, general device/browser type, approximate
+                location at a country/region level. Note that no cookies or fingerprinting are
+                used.]
               </p>
+              <h4>How We Use It</h4>
               <p>
-                Cloudflare Analytics does not use cookies, fingerprinting, or other invasive
-                tracking methods to identify visitors.
+                [Placeholder — explain that data is used only in aggregate to understand traffic
+                and improve site performance, and is never sold or shared with third parties.]
               </p>
-
-              <h4>How I Use It</h4>
+              <h4>What We Don't Collect</h4>
               <p>
-                The information collected is used only in aggregate to understand how visitors
-                interact with the website, monitor performance, and improve functionality.
+                [Placeholder — clarify that no personal, sensitive, or identifiable information
+                is collected, and that the site owner cannot identify individual visitors.]
               </p>
-              <p>
-                Analytics data is not sold, rented, or used for advertising purposes, and I do
-                not share this information with third parties.
-              </p>
-
-              <h4>What I Don't Collect</h4>
-              <p>
-                I do not collect, store, or have access to any personal, sensitive, or
-                identifiable information.
-              </p>
-              <p>
-                I cannot identify individual visitors, track specific people, or access
-                information that would reveal who has visited the site. Any analytics information
-                available to me is anonymous and intended only for understanding general website
-                usage.
-              </p>
-
               <h4>Contact</h4>
               <p>
-                If you have any questions about this Privacy Policy or the use of analytics on
-                this website, please contact me: Email: rhys.p.evans@gmail.com
+                [Placeholder — how a visitor can get in touch with questions about this policy.]
               </p>
             </div>
           </div>
