@@ -967,17 +967,18 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: transparent;
-  border: none;
-  color: var(--ink-faint);
-  width: 32px;
-  height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background 0.2s, color 0.2s, transform 0.2s ease-in-out;
 }
 
 .privacy-modal__close:hover {
